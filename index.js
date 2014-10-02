@@ -49,3 +49,17 @@ function roll_die () {
  	return v_list;
  }
  five_die();
+ 
+ //Probem 4
+ 
+ function yahtzee(){
+ 	var v_list = [];
+ 	five_die();
+ 	if (v_list[0]===v_list[1]===v_list[2]===v_list[3]===v_list[4]) {
+ 	    return 50;
+ 	} else {
+ 		return 0;
+ 	}
+ }
+ 
+yahtzee();

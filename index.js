@@ -77,15 +77,15 @@ function return_sum(numbers) {
 
 //Problem 6
 
-function four_kind (input){
-	var i=0;
-	while (i < input.length){
-		if(input[i]===input[(i+1)%5]===input[(i+2)%5]===input[(i+3)%5]){
-			return input[i]+input[(i+1)%5]+input[(i+2)%5]+input[(i+3)%5];
-		} 
-		i+=1;
-	}
-	return 0;	
+function four_kind(input) {
+  var i = 0;
+  while (i < input.length) {
+    if (input[i] === input[(i + 1) % 5] && input[(i + 1) % 5] === input[(i + 2) % 5] && input[(i + 2) % 5] === input[(i + 3) % 5]) {
+      return input[i] + input[(i + 1) % 5] + input[(i + 2) % 5] + input[(i + 3) % 5] + input[(i + 4) % 5];
+    }
+    i += 1;
+  }
+  return 0;
 }
 [6,6,2,6,6]
 
@@ -93,12 +93,31 @@ function four_kind (input){
 
 function straight(input){
 	input.sort();
-	if (input[0]===input[1]-1&&	input[1]===input[2]-1&&	input[2]===input[3]-1&&	input[3]===input[4]-1){
+	if ( input[0] === input[1] - 1 && input[1] === input[2] - 1 && input[2] === input[3] - 1 &&	input[3] === input[4] - 1 ){
 		return 40;
 	} else {
 		return 0;
 	}
 }
+
+//Problem 8 
+
+function full_house(input) {
+  input.sort();
+  var i = 0;
+  while (i < input.length) {
+    if (input[i] === input[(i + 1) % 5] && input[(i + 1) % 5] === input[(i + 2) % 5]) {
+      if (input[(i + 3) % 5] === input[(i + 4) % 5]) {
+        return 25;
+      }
+    }
+    i += 1;
+  }
+  return 0;
+}
+
+
+
 
 
 

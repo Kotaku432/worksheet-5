@@ -54,7 +54,7 @@ function roll_die () {
  //Probem 4
  
  function yahtzee(hand){
- 	if (hand[0]===hand[1]===hand[2]===hand[3]===hand[4]) {
+ 	if ( hand[0] === hand[1] && hand[1] === hand[2] && hand[2] === hand[3] && hand[3] === hand[4]) {
  	    return 50;
  	} else {
  		return 0;
@@ -87,7 +87,6 @@ function four_kind(input) {
   }
   return 0;
 }
-[6,6,2,6,6]
 
 // Problem 7
 
@@ -115,6 +114,63 @@ function full_house(input) {
   }
   return 0;
 }
+
+//Problem 9
+
+
+
+//Problem 10
+
+function maximum(list){
+	var max = 0;
+	var i = 0;
+	while ( i < list.length ) {
+		if ( list[i] > max ) {
+			max = list[i];
+		}
+		i += 1;
+	}
+	return max;
+}
+maximum([1,1,2,3,4,10,6,5,7,9]);
+
+//Problem 11
+
+function play(list){
+	var max=0;
+	var type = " ";
+	var i = 0;
+	if ( four_kind(list) > max ) {
+		max = four_kind(list);
+		type = "Four-of-a-kind";
+	}
+	if ( yahtzee(list) > max ) {
+		max = yahtzee(list);
+		type = "Yahtzee";
+	}
+	if ( straight(list) > max ) {
+		max = straight(list);
+		type = "Large Straight";
+	}
+	return "The best score is " + max + " by categorizing it as a " + type + ".";
+}
+
+// play([6,6,6,6,6]) 50, Yahtzee
+
+// play([6,4,3,5,2]) 40, Large Straight
+
+// play([2,2,2,3,2]) 11, Four-of-a-kind
+
+
+
+
+
+
+
+
+
+
+
 
 
 

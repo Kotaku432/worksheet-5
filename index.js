@@ -117,7 +117,9 @@ function full_house(input) {
 
 //Problem 9
 
-
+function scores(rolls, functions){
+	
+}
 
 //Problem 10
 
@@ -139,7 +141,6 @@ maximum([1,1,2,3,4,10,6,5,7,9]);
 function play(list){
 	var max=0;
 	var type = " ";
-	var i = 0;
 	if ( four_kind(list) > max ) {
 		max = four_kind(list);
 		type = "Four-of-a-kind";

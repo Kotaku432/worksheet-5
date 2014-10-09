@@ -43,19 +43,18 @@ function roll_die () {
  function five_die () {
  	var v_list=[];
  	var number = 0;
- 	while (number < 5)
+ 	while (number < 5) {
  	    v_list[number]= roll_die();
  	    number = number +1;
+ 	}
  	return v_list;
  }
  five_die();
  
  //Probem 4
  
- function yahtzee(){
- 	var v_list = [];
- 	five_die();
- 	if (v_list[0]===v_list[1]===v_list[2]===v_list[3]===v_list[4]) {
+ function yahtzee(hand){
+ 	if (hand[0]===hand[1]===hand[2]===hand[3]===hand[4]) {
  	    return 50;
  	} else {
  		return 0;
@@ -63,3 +62,36 @@ function roll_die () {
  }
  
 yahtzee();
+
+//Problem 5
+
+function return_sum(numbers) {
+	var sum = 0;
+	var i=0;
+	while (i<numbers.length) {
+		sum += numbers[i];
+		i+=1;
+	}
+}
+
+
+//Problem 6
+
+function four_kind (input){
+	var i=0;
+	while (i < input.length){
+		if(input[i]===input[(i+1)%5]===input[(i+2)%5]===input[(i+3)%5]){
+			return input[i]+input[(i+1)%5]+input[(i+2)%5]+input[(i+3)%5];
+		} 
+		i+=1;
+	}
+	return 0;	
+}
+[6,6,2,6,6]
+
+
+
+
+
+
+

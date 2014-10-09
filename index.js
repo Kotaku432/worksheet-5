@@ -89,7 +89,16 @@ function four_kind (input){
 }
 [6,6,2,6,6]
 
+// Problem 7
 
+function straight(input){
+	input.sort();
+	if (input[0]===input[1]-1&&	input[1]===input[2]-1&&	input[2]===input[3]-1&&	input[3]===input[4]-1){
+		return 40;
+	} else {
+		return 0;
+	}
+}
 
 
 

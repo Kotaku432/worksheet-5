@@ -118,7 +118,12 @@ function full_house(input) {
 //Problem 9
 
 function scores(rolls, functions){
-	
+	var scores_list = [];
+	var i = 0;
+	while ( i < functions.length ) {
+		scores_list[i] = functions[i](rolls);
+		i += 1;
+	}
 }
 
 //Problem 10

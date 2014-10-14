@@ -100,6 +100,21 @@ function straight(input){
 	}
 }
 
+//Problem 8 
+
+function full_house(input) {
+  input.sort();
+  var i = 0;
+  while (i < input.length) {
+    if (input[i] === input[(i + 1) % 5] && input[(i + 1) % 5] === input[(i + 2) % 5]) {
+      if (input[(i + 3) % 5] === input[(i + 4) % 5]) {
+        return 25;
+      }
+    }
+    i += 1;
+  }
+  return 0;
+}
 
 
 

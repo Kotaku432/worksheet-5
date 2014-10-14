@@ -36,7 +36,6 @@ function roll_die () {
         return 6;
     }
  }    
- roll_die();
  
  //Problem 3
  
@@ -49,19 +48,18 @@ function roll_die () {
  	}
  	return v_list;
  }
- five_die();
+
  
  //Probem 4
  
  function yahtzee(hand){
- 	if (hand[0]===hand[1]===hand[2]===hand[3]===hand[4]) {
+ 	if ( hand[0] === hand[1] && hand[1] === hand[2] && hand[2] === hand[3] && hand[3] === hand[4]) {
  	    return 50;
  	} else {
  		return 0;
  	}
  }
  
-yahtzee();
 
 //Problem 5
 
@@ -77,23 +75,22 @@ function return_sum(numbers) {
 
 //Problem 6
 
-function four_kind (input){
-	var i=0;
-	while (i < input.length){
-		if(input[i]===input[(i+1)%5]===input[(i+2)%5]===input[(i+3)%5]){
-			return input[i]+input[(i+1)%5]+input[(i+2)%5]+input[(i+3)%5];
-		} 
-		i+=1;
-	}
-	return 0;	
+function four_kind(input) {
+  var i = 0;
+  while (i < input.length) {
+    if (input[i] === input[(i + 1) % 5] && input[(i + 1) % 5] === input[(i + 2) % 5] && input[(i + 2) % 5] === input[(i + 3) % 5]) {
+      return input[i] + input[(i + 1) % 5] + input[(i + 2) % 5] + input[(i + 3) % 5] + input[(i + 4) % 5];
+    }
+    i += 1;
+  }
+  return 0;
 }
-[6,6,2,6,6]
 
 // Problem 7
 
 function straight(input){
 	input.sort();
-	if (input[0]===input[1]-1&&	input[1]===input[2]-1&&	input[2]===input[3]-1&&	input[3]===input[4]-1){
+	if ( input[0] === input[1] - 1 && input[1] === input[2] - 1 && input[2] === input[3] - 1 &&	input[3] === input[4] - 1 ){
 		return 40;
 	} else {
 		return 0;
@@ -115,6 +112,74 @@ function full_house(input) {
   }
   return 0;
 }
+
+
+//Problem 9
+
+function scores(rolls, functions){
+	var scores_list = [];
+	var i = 0;
+	while ( i < functions.length ) {
+		scores_list[i] = functions[i](rolls);
+		i += 1;
+	}
+	return scores_list;
+}
+
+//Problem 10
+
+function maximum(list){
+	var max = -(Infinity);
+	var i = 0;
+	while ( i < list.length ) {
+		if ( list[i] > max ) {
+			max = list[i];
+		}
+		i += 1;
+	}
+	return max;
+}
+
+
+//Problem 11
+
+function play(list){
+	var functions = [yahtzee, four_kind, straight];
+	var max = maximum(scores(list,functions));
+	return max;
+}
+
+// play([6,6,6,6,6]) 50, Yahtzee
+
+// play([6,4,3,5,2]) 40, Large Straight
+
+// play([2,2,2,3,2]) 11, Four-of-a-kind
+
+// Problem 12
+
+function go_for_gold(){
+	
+	var score =  0 ;
+	var rolls_taken = 0;
+	
+	while (score < 25) {
+		rolls_taken += 1;
+		var rolls = five_die();
+		score = play(rolls);
+		
+	}
+	return rolls_taken;
+}
+
+//play([6,5,6,6,6])
+go_for_gold()
+
+
+
+
+
+
+
 
 
 
